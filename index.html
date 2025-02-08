@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <link rel="stylesheet" href="src/style.css"/>
+</head>
+<body>
+     <div class="box">
+    <header>
+    <form class="form-box" id="form-box">
+        <input type="text" placeholder="Enter a city" id="city"/>
+        <input type="submit" value="Search" id="searching"/>
+    </form>
+</header>
+<main>
+    <div class="weather-data">
+    <h1 id="location">New York</h1>
+    <p><span id="time">Monday
+    <strong >11:47</strong></span>,
+    <span class="detail">Cloudy rain</span> <br>
+    Humidity: <strong class="percentage">74%</strong>, 
+    Wind: <strong class="km">6.2km/h</strong> </p>
+
+    <div class="weather-temp">
+    <div class="weather-icon" id="icon"> 
+        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"/>
+    </div>
+    <div class="weather-temp-number" id="temp">19</div>
+    <div class="weather-degree">°C</div></div>
+    </div>
+    </main>
+    <footer>
+        This was coded by <a href="https://github.com/nsikhonde-1" target="_blank"> Nomcebo Sikhonde</a>, is open-sourced on
+        <a href="https://github.com/nsikhonde-1/Week-7-HomeWork" target="_blank">GitHub </a>
+        and hosted on <a href="https://cebilo.netlify.app/" target="_blank">Netlify.</a>
+    </footer>
+    </div>
+    <script src="src/app.js"></script>
+</body>
+</html>
