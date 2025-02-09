@@ -5,7 +5,6 @@
     max-width: 600px;
     display:block;
     border-radius: 12px;
-    border-top: 1px solid;
     font-family: monospace;
 }
 
@@ -27,7 +26,8 @@
 }
 strong{color:#8d82df;}
 
-.weather-data{display: block;}
+.weather-data{display: block;
+    border-top: 2px solid rgb(247, 170, 196);}
 .weather-temp{display: flex;
 justify-content:right; position: relative;
 top: -90px;
@@ -46,6 +46,7 @@ margin-top: -12px;
 .weather-degree{
     font-size: 30px;
     margin-top: 10px;
+
 }
 a{color: #ee63d0;
 }
@@ -53,13 +54,14 @@ a{color: #ee63d0;
 .day{text-align: center;
 color: #613864;
 line-height: 15px;
-font-size: 18px;
+font-size: 15px;
 margin-bottom: 10px;
-margin-top: 15px;}
+margin-top: 10px;}
 
 .weather-forecast-icon{
-    text-align: center;
-    font-size: 25px;
+    width: 70%;
+        display: block;
+        margin: 0 auto;
 }
 .weather-forecast-temps{
     text-align: center;
@@ -73,7 +75,9 @@ margin-top: 15px;}
     padding: 0 5px;
 }
 .weather-forecast{
+    font-size: 12px;
     display: flex;
     justify-content: space-around;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgb(247, 168, 194);;
 }

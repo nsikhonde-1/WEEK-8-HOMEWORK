@@ -12,7 +12,7 @@ function searchLocation(city) {
 }
 
 function changeWeather(response) {
-  console.log(response.data);
+
   let temperature = document.querySelector("#temp");
   let cityName = document.querySelector("#location");
   let humidity = document.querySelector(".percentage");
@@ -31,6 +31,7 @@ function changeWeather(response) {
   condition.innerHTML = response.data.condition.description;
 
   displayForecast(response.data.city);
+  
 }
 function formatDate(date) {
   let minutes = date.getMinutes();
@@ -62,28 +63,43 @@ function displayForecast(city) {
   axios(apiUrl).then(showForecast);
 }
 
-function showForecast(response) {
-  console.log(response.data);
+function weekDays(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
+}
 
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+function showForecast(response) {
+console.log(response.data);
+
   let forecastHTML = "";
 
-  days.forEach(function (day) {
-    forecastHTML=
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) { 
+    forecastHTML =
       forecastHTML +
       `
         <div class="weather-forecast-day">
-        <div class="day"> ${day} </div>
-        <div class="weather-forecast-icon">🌤️</div>
-        <div class="weather-forecast-temps">
-            <div class="weather-forecast-1">25°</div>
-            <div class="weather-forecast-2"><strong>16°</strong></div>
+        <div class="day"> ${weekDays(day.time)} </div>
+        <div >
+        <img src="${day.condition.icon_url}" class="weather-forecast-icon"/>
         </div>
-        </div>`;
-    
+        <div class="weather-forecast-temps">
+            <div class="weather-forecast-1">${Math.round(
+        day.temperature.maximum
+      )}° </div>
+            <div class="weather-forecast-2">/<strong>${Math.round(
+        day.temperature.minimum
+      )}°</strong></div>
+        </div>
+        </div>
+        `;
+  }
   });
 
   let forecast = document.querySelector("#weather-forecast");
   forecast.innerHTML = forecastHTML;
-}
+} 
+
+searchLocation("Johannesburg")
 displayForecast();
